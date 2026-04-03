@@ -1,17 +1,17 @@
-version: 0.2
+version: 0.2 # Buildspec file format version (required by AWS CodeBuild)
 
 phases:
   install:
     runtime-versions:
-      nodejs: 20
+      nodejs: 20 # Specifies Node.js version for the build environment
     commands:
-      - npm ci
+      - npm ci # Installs dependencies using package-lock.json
 
   build:
     commands:
-      - npm run build
+      - npm run build # Runs "vite build" from package.json
 
 artifacts:
-  base-directory: dist
+  base-directory: dist # Folder where Vite outputs production files
   files:
-    - '**/*'
+    - '**/*' ## Include all files inside the dist folder
